@@ -11,12 +11,13 @@ module.exports = {
       'black2': '#20212C',
       'black3': '#2B2C37',
       'greyblack': '#3E3F4E',
-      'grey': '#828FA3',
+      'mediumgrey': '#828FA3',
       'greywhite1': '#E4EBFA',
       'greywhite2': '#F4F7FD',
-      'white': 'FFFFFF',
-      'red': 'EA5555',
-      'lightred': 'FF9898'
+      'white': '#FFFFFF',
+      'red': '#EA5555',
+      'lightred': '#FF9898',
+      'turk': '#49C4E5'
     },
     extend: {},
   },
