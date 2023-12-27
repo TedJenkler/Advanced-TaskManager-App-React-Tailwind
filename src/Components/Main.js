@@ -1,8 +1,9 @@
 import data from "../data.json"
+import AddTask from "./AddTask";
 import Empty from "./Empty";
 import Renderer from "./Renderer";
 
-const Main = (state) => {
+const Main =  ( {state} ) => {
 
     return (<>
         {data.length < 0 ? <Empty /> :
@@ -10,6 +11,7 @@ const Main = (state) => {
             <Renderer nr={0} />
             <Renderer nr={1} />
             <Renderer nr={2} />
+            <AddTask state={state} />
         </div>
         }
     </>

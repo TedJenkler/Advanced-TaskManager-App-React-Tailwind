@@ -1,9 +1,7 @@
 import data from "../data.json"
 
 const Renderer = (nr) => {
-    console.log(nr)
     let newnr = Object.values(nr)
-    console.log(newnr)
     return (
             <div className="">
                 <div className="flex items-center gap-4 py-6 ml-4">
