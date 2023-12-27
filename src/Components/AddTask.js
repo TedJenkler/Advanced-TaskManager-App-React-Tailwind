@@ -1,11 +1,11 @@
-const AddTask = ( {state} ) => {
+const AddTask = ( {state, dispatch} ) => {
     return(
         <form className={state.toggleadd === false ? "hidden" : "absolute w-11/12 bg-white mx-auto left-0 right-0 top-40 flex flex-col p-6"}>
             <h2 className="mb-6">Add New Task</h2>
             <label className="pl text-mediumgrey mb-2">Title</label>
-            <input className="border-mediumgrey/25 border py-2 px-4 rounded mb-6" placeholder="e.g take coffee break"></input>
+            <input onChange={(e) => {dispatch({type: 'addtitle', payload: e.target.value})}} value={state.formadd.title} className="border-mediumgrey/25 border py-2 px-4 rounded mb-6" placeholder="e.g take coffee break"></input>
             <label className="pl text-mediumgrey mb-2">Description</label>
-            <textarea className="h-28 border-mediumgrey/25 border py-2 px-4 rounded mb-6" placeholder="e.g. It’s always good to take a break. This
+            <textarea onChange={(e) => {dispatch({type: 'adddescription', payload: e.target.value})}} value={state.formadd.description} className="h-28 border-mediumgrey/25 border py-2 px-4 rounded mb-6" placeholder="e.g. It’s always good to take a break. This
             15 minute break will  recharge the batteries a little."></textarea>
             <div>
                 <label className="pl text-mediumgrey">Subtasks</label>
