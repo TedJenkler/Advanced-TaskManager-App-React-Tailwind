@@ -28,7 +28,7 @@ function App() {
             case 'addtask': {
               return {
                 ...state,
-                data: {...boards}
+                data: {...state.data, boards: {...state.data.boards, 0: {...state.data.boards[0], columns: {...state.data.boards[0].columns, [0]: {...data.boards[0].columns[0], tasks: [...data.boards[0].columns[0].tasks, {title: state.formadd.title, description: state.formadd.description}]}}}}}
               }
           }
         }

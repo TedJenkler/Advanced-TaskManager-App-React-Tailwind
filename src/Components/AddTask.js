@@ -1,6 +1,6 @@
 const AddTask = ( {state, dispatch} ) => {
     return(
-        <form className={state.toggleadd === false ? "hidden" : "absolute w-11/12 bg-white mx-auto left-0 right-0 top-40 flex flex-col p-6"}>
+        <form onSubmit={(e) => {e.preventDefault()}} className={state.toggleadd === false ? "hidden" : "absolute w-11/12 bg-white mx-auto left-0 right-0 top-40 flex flex-col p-6"}>
             <h2 className="mb-6">Add New Task</h2>
             <label className="pl text-mediumgrey mb-2">Title</label>
             <input onChange={(e) => {dispatch({type: 'addtitle', payload: e.target.value})}} value={state.formadd.title} className="border-mediumgrey/25 border py-2 px-4 rounded mb-6" placeholder="e.g take coffee break"></input>
@@ -22,7 +22,7 @@ const AddTask = ( {state, dispatch} ) => {
                     <label className="pl text-mediumgrey">Status</label>
                     <input placeholder="select"></input>
                 </div>
-                <button className="bg-darkpurple text-white py-2 w-full rounded-3xl"><p className="pl">Create Task</p></button>
+                <button onClick={(e) => {dispatch({type: 'addtask'})}} className="bg-darkpurple text-white py-2 w-full rounded-3xl"><p className="pl">Create Task</p></button>
             </div>
         </form>
     )
