@@ -1,16 +1,15 @@
 import data from "../data.json"
 
 const Renderer = ( {nr, state} ) => {
-    let newnr = Object.values(nr)
     return (
             <div className="">
                 <div className="flex items-center gap-4 py-6 ml-4">
                     <div className="bg-turk w-4 h-4 rounded-full"></div>
-                    <h4 className="text-mediumgrey">{state.data.boards[0].columns[0].name} ({data.boards[0].columns[0].tasks.length})</h4>
+                    <h4 className="text-mediumgrey">{state.data.boards[0].columns[nr].name} ({data.boards[0].columns[nr].tasks.length})</h4>
                 </div>
                 <div className="ml-4 pb-4">
                     {Object.values(state.data).map((todos) => {
-                        const array = todos[0].columns[0].tasks;
+                        const array = todos[0].columns[nr].tasks;
                         return(
                             array.map((array) => {
                             return (

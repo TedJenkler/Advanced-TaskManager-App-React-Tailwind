@@ -10,14 +10,14 @@ const AddTask = ( {state, dispatch} ) => {
             <div>
                 <label className="pl text-mediumgrey">Subtasks</label>
                 <div className="mt-2 mb-4">
-                    <input className="border-mediumgrey/25 border py-2 px-4 rounded" placeholder="e.g. Drink coffee & smile"></input>
+                    <input onChange={(e) => {dispatch({type: 'addsubtaskbuilder1', payload: e.target.value})}} value={state.subtask1} className="border-mediumgrey/25 border py-2 px-4 rounded" placeholder="e.g. Drink coffee & smile"></input>
                     <button></button>
                 </div>
                 <div className="mb-4">
-                    <input className="border-mediumgrey/25 border py-2 px-4 rounded" placeholder="e.g. Make coffee"></input>
+                    <input onChange={(e) => {dispatch({type: 'addsubtaskbuilder2', payload: e.target.value})}} value={state.subtask2} className="border-mediumgrey/25 border py-2 px-4 rounded" placeholder="e.g. Make coffee"></input>
                     <button></button>
                 </div>
-                <button className="bg-greywhite2 text-darkpurple py-2 w-full rounded-3xl mb-6"><p className="pl w-full">+ Add New Subtask</p></button>
+                <button onClick={(e) => {dispatch({type: 'addsubtask'})}} className="bg-greywhite2 text-darkpurple py-2 w-full rounded-3xl mb-6"><p className="pl w-full">+ Add New Subtask</p></button>
                 <div className="flex flex-col mb-6">
                     <label className="pl text-mediumgrey">Status</label>
                     <input placeholder="select"></input>
