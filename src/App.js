@@ -6,7 +6,7 @@ import data from "./data.json"
 
 function App() {
 
-  const [state, dispatch] = useReducer(reducer, {data, toggleadd: false, formadd: {title: "", description: "", subtask: ""}})
+  const [state, dispatch] = useReducer(reducer, {data, toggleadd: false, formadd: {title: "", description: "", subtask: ""}, addsubtaskarray: []})
   console.log(state)
     function reducer(state, action){
         switch(action.type) {
@@ -27,22 +27,29 @@ function App() {
           }
           case 'addsubtaskbuilder1': {
             return {
-              ...state, subtask1: action.payload
+              ...state,
+              data: {...state.data, boards: {...state.data.boards, 0: {...state.data.boards[0], columns: {...state.data.boards[0].columns, [0]: {...data.boards[0].columns[0], tasks: [...data.boards[0].columns[0].tasks, {subtasks: [...data.boards[0].columns[0].tasks[0].subtasks, {title: action.payload}]}]}}}}}
             }
         }
-          case 'addsubtaskbuilder2': {
-            return {
-              ...state, subtask2: action.payload
-            }
+        case 'addsubtaskbuilder2': {
+          return {
+            ...state, subtask2: action.payload
+          }
+      }
+      case 'addsubtaskbuilder3': {
+        return {
+          ...state, subtask3: action.payload
         }
-          case 'addsubtask': {
+     }
+          case 'addsubtaskfield': {
             return {
+              ...state, addsubtaskarray: [...state.addsubtaskarray, {}]
             }
         }
             case 'addtask': {
               return {
                 ...state,
-                data: {...state.data, boards: {...state.data.boards, 0: {...state.data.boards[0], columns: {...state.data.boards[0].columns, [0]: {...data.boards[0].columns[0], tasks: [...data.boards[0].columns[0].tasks, {title: state.formadd.title, description: state.formadd.description, subtasks: [{title: state.subtask1, isCompleted: false}, {title: state.subtask2, isCompleted: false}]}]}}}}}
+                data: {...state.data, boards: {...state.data.boards, 0: {...state.data.boards[0], columns: {...state.data.boards[0].columns, [0]: {...data.boards[0].columns[0], tasks: [...data.boards[0].columns[0].tasks, {title: state.formadd.title, description: state.formadd.description, subtasks: state.addsubtaskarray}]}}}}}
               }
           }
         }
